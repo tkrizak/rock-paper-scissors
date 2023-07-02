@@ -9,7 +9,7 @@ updateScoreElement();
 let isAutoPlaying = false;
 let intervalId;
 
-const autoPlay = () => {};
+/* const autoPlay = () => {}; */
 
 function autoPlay() {
   if (!isAutoPlaying) {
