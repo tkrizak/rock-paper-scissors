@@ -11,6 +11,10 @@ let intervalId;
 
 /* const autoPlay = () => {}; */
 
+document.querySelector('.js-auto-play-button').addEventListener('click', () => {
+  autoPlay();
+});
+
 function autoPlay() {
   if (!isAutoPlaying) {
     intervalId = setInterval(() => {
@@ -18,11 +22,45 @@ function autoPlay() {
       playGame(playerMove);
     }, 1000);
     isAutoPlaying = true;
+
+    document.querySelector('.js-auto-play-button').innerHTML = 'Stop Playing';
   } else {
     clearInterval(intervalId);
     isAutoPlaying = false;
+
+    document.querySelector('.js-auto-play-button').innerHTML = 'Auto Play';
   }
 }
+
+// onclick/keydown
+
+document.querySelector('.js-rock-button').addEventListener('click', () => {
+  playGame('rock');
+});
+
+document.querySelector('.js-paper-button').addEventListener('click', () => {
+  playGame('paper');
+});
+
+document.querySelector('.js-scissors-button').addEventListener('click', () => {
+  playGame('scissors');
+});
+
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'r') {
+    playGame('rock');
+  } else if (event.key === 'p') {
+    playGame('paper');
+  } else if (event.key === 's') {
+    playGame('scissors');
+  } else if (event.key === 'a') {
+    autoPlay();
+  } else if (event.key === 'Backspace') {
+    resetScore();
+  }
+});
+
+//
 
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
@@ -79,11 +117,30 @@ function playGame(playerMove) {
 Computer`;
 }
 
+//
+
+function resetScore() {
+  alert('Are you sure?');
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  localStorage.removeItem('score');
+  updateScoreElement();
+}
+
+document
+  .querySelector('.js-reset-score-button')
+  .addEventListener('click', () => {
+    resetScore();
+  });
+
 function updateScoreElement() {
   document.querySelector(
     '.js-score'
   ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 }
+
+//
 
 function pickComputerMove() {
   const randomNumber = Math.random();
