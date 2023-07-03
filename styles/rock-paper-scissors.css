@@ -25,6 +25,19 @@ body {
   box-shadow: 0 0 15px hsl(0, 0%, 0%, 0.7);
 }
 
+.controls {
+  margin-right: 3rem;
+  line-height: 1.5rem;
+}
+
+.controls h2 {
+  margin-bottom: 2rem;
+}
+
+.controls span {
+  color: hsl(43, 90%, 59%);
+}
+
 .title {
   font-size: 30px;
   font-weight: 700;
@@ -78,4 +91,16 @@ body {
   cursor: pointer;
   margin-top: 20px;
   margin-left: 5px;
+}
+
+.reset-confirmation {
+  margin-top: 1.5rem;
+}
+
+.reset-confirm-button {
+  background: white;
+  width: 3rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 5px;
 }

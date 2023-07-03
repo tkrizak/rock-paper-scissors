@@ -8,8 +8,16 @@
     <link rel="stylesheet" href="./styles/rock-paper-scissors.css" />
   </head>
   <body>
+    <div class="controls container">
+      <h2>Keyboard controls:</h2>
+      <p>Use rock = "<span>R</span>"</p>
+      <p>Use paper = "<span>P</span>"</p>
+      <p>Use scissors = "<span>S</span>"</p>
+      <p>Reset the score = "<span>Backspace</span>"</p>
+      <p>Start/stop auto play = "<span>A</span>"</p>
+    </div>
     <div class="container">
-      <p class="title">Rock Paper Scissors</p>
+      <h1 class="title">Rock Paper Scissors</h1>
       <button class="move-button js-rock-button">
         <img src="./images/rock-emoji.png" class="move-icon" alt="" />
       </button>
@@ -28,6 +36,7 @@
         </button>
         <button class="auto-play-button js-auto-play-button">Auto Play</button>
       </div>
+      <p class="reset-confirmation js-reset-confirmation"></p>
     </div>
 
     <script src="scripts/rock-paper-scissors.js"></script>
